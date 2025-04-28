@@ -8,7 +8,7 @@ app.use(cors())
 
 app.get("/ytld", (req, res)=>{
     ytmp3(req.query.url).then(audio =>{
-        return res.send(audio.toString("base64"));
+        return res.send({"base64": audio.toString("base64")});
     });
 });
 
