@@ -8,9 +8,7 @@ app.use(cors())
 
 app.get("/ytld", (req, res)=>{
     ytmp3(req.query.url).then(audio =>{
-        res.setHeader("Content-Disposition", `attachment; filename="${req.query.nombre}.mp3"`);
-        res.setHeader("Content-Type", "audio/mpeg");
-        return res.send(audio);
+        return res.send(audio.toString("base64"));
     });
 });
 
